@@ -1,11 +1,11 @@
-function binhPhuong(a) {
-    return (Math.pow(a, 2));
+function POW(a) {
+  return Math.pow(a, 2);
 }
 
-function canBacHai(a) {
-    return (Math.sqrt(a));
+function SQRT(a) {
+  return Math.sqrt(a);
 }
 
 function Result() {
-    if ()
+  calculator.display.value = eval(calculator.display.value);
 }
