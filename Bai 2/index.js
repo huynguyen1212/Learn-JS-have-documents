@@ -37,7 +37,7 @@ function getValue() {
 
 function dai() {
   var b = a[0].value;
-  let Dodai = b.lenght;
+  let Dodai = b.length;
   var dodai = Number(Dodai);
   var chuoi = prompt("Nhap yeu cau");
   if (chuoi != null) {

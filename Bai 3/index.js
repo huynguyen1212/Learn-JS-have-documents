@@ -132,25 +132,41 @@ document.getElementById("myDiv").innerHTML =
   "</tr>" +
   "</table>";
 
-function onTop(topMon, n) {
-  var table, rows, i, x, y, Top;
-  table = document.getElementById("second_table");
-  while (true) {
-    rows = table.rows;
-    for (i = 1; i < rows.length - 1; i++) {
-      x = rows[i].getElementsByTagName("TD")[n];
-      y = rows[i + 1].getElementsByTagName("TD")[n];
-      Top = x;
-      if (Number(x.innerHTML) < Number(y.innerHTML)) {
-        Top = y;
-      }
-    }
-  }
-  document.getElementById("topMon").innerHTML = rows[i];
-}
-onTop("topVan", 4);
-onTop("topToan", 5);
-onTop("topTong", 6);
+// var Arr = [];
+
+// function getData() {
+//   let table, rows, i, x, y, Top;
+//   table = document.getElementById("second_table");
+//   while (true) {
+//     rows = table.rows;
+//     for (i = 1; i < rows.length - 1; i++) {
+//       let tD = rows[i].getElementsByTagName("TD");
+//       console.log(tD);
+//       break;
+//     }
+//   }
+// }
+// getData();
+
+// function onTop(topMon, n) {
+//   var table, rows, i, x, y, Top;
+//   table = document.getElementById("second_table");
+//   while (true) {
+//     rows = table.rows;
+//     for (i = 1; i < rows.length - 1; i++) {
+//       x = rows[i].getElementsByTagName("TD")[n];
+//       y = rows[i + 1].getElementsByTagName("TD")[n];
+//       Top = x;
+//       if (Number(x.innerHTML) < Number(y.innerHTML)) {
+//         Top = y;
+//       }
+//     }
+//   }
+//   document.getElementById("topMon").innerHTML = rows[Top];
+// }
+// onTop("topVan", 4);
+// onTop("topToan", 5);
+// onTop("topTong", 6);
 
 function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch;
