@@ -9,30 +9,152 @@
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    #tabs ul {
+      display: flex;
+    }
+
+    #tabs ul a {
+      text-decoration: none;
+      margin-right: 50px;
+      border: 1px solid greenyellow;
+    }
+
+    .tab_item {
+      border: 1px solid yellowgreen;
+      width: 550px;
+      height: 300px;
+    }
+
+    #toolbar {
+      padding: 10px;
+      background-color: burlywood;
+    }
+
+    #toolbar a {
+      text-decoration: none;
+      margin-left: 20px;
+      padding: 5px;
+      background-color: chartreuse;
+      color: darkblue;
+    }
+
+    #toolbar a:hover {
+      background-color: yellow;
+      color: darkblue;
+    }
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    .actives {
+      background-color: chocolate;
+    }
+  </style>
 </head>
 
 <body>
-
   <div id="tabs">
     <ul>
       <li><a href="#tabs-1">Edition</a></li>
       <li><a href="#tabs-2">Search</a></li>
     </ul>
-    <div id="tabs-1">
-      <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi
-        sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor
-        risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam
-        sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius
-        sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+
+    <div id="tabs-1" class="tab_item">
+      <div id="toolbar">
+        <a href="#" class="easyui-linkbutton" onclick="newUser()">New User</a>
+        <a href="#" class="easyui-linkbutton" onclick="editUser()">Edit User</a>
+        <a href="#" class="easyui-linkbutton" onclick="destroyUser()">Remove User</a>
+      </div>
+      <table id="dg" title="My Users" class="easyui-datagrid" style="width:550px;height:250px">
+        <thead>
+          <tr>
+            <th field="firstname" width="50">First Name</th>
+            <th field="lastname" width="50">Last Name</th>
+            <th field="phone" width="50">Phone</th>
+            <th field="email" width="50">Email</th>
+          </tr>
+        </thead>
+      </table>
+
+      <div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px">
+        <div class="ftitle">User Information</div>
+        <form id="fm">
+          <div class="fitem">
+            <label>First Name:</label>
+            <input name="firstname" class="easyui-textbox firstname" required="true">
+          </div>
+          <div class="fitem">
+            <label>Last Name:</label>
+            <input name="lastname" class="easyui-textbox lastname" required="true">
+          </div>
+          <div class="fitem">
+            <label>Phone:</label>
+            <input name="phone" class="easyui-textbox phone">
+          </div>
+          <div class="fitem">
+            <label>Email:</label></br>
+            <input name="email" class="easyui-textbox email" validType="email">
+          </div>
+          <button class="save" style="margin-top: 10px;">Save</button>
+        </form>
+      </div>
+
+
+      <div id="dlg" class="edit-dialog" style="width:400px;height:280px;padding:10px 20px">
+        <div class="ftitle">User Information</div>
+        <form id="fm">
+          <div class="fitem">
+            <label>First Name:</label>
+            <input name="firstname" class="easyui-textbox firstname" required="true">
+          </div>
+          <div class="fitem">
+            <label>Last Name:</label>
+            <input name="lastname" class="easyui-textbox lastname" required="true">
+          </div>
+          <div class="fitem">
+            <label>Phone:</label>
+            <input name="phone" class="easyui-textbox phone">
+          </div>
+          <div class="fitem">
+            <label>Email:</label></br>
+            <input name="email" class="easyui-textbox email" validType="email">
+          </div>
+          <button class="save" style="margin-top: 10px;">Save</button>
+        </form>
+      </div>
+
+      <div class="removeUser" style="width: 350px; border: 1px solid black;">
+        <div class="messager-body" style="width: 300px; min-height: 69px;">
+          <div>Are you sure you want to destroy this user?</div>
+        </div>
+        <div class="messager-button" style="width: 288px;">
+          <a class="l-btn l-btn-small">
+            <span class="l-btn-left">
+              <button class="l-btn-text">Ok</button>
+              <button class="l-btn-text">Cancel</button>
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
-    <div id="tabs-2">
-      <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis
-        scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus
-        eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent
-        in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus.
-        Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque
-        pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.
-      </p>
+
+    <div id="tabs-2" class="tab_item">
+      <input id="myInput" type="text" placeholder="Search.." style="margin-top: 10px; transform: translateX(50%);">
     </div>
   </div>
 
