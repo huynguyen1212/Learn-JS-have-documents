@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Document</title>
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" type="text/html" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <style>
@@ -64,6 +64,9 @@
     .actives {
       background-color: chocolate;
     }
+    #checkbox {
+      width: 5px;
+    }
   </style>
 </head>
 
@@ -77,65 +80,67 @@
     <div id="tabs-1" class="tab_item">
       <div id="toolbar">
         <a href="#" class="easyui-linkbutton" onclick="newUser()">New User</a>
-        <a href="#" class="easyui-linkbutton" onclick="editUser()">Edit User</a>
+        <a href="#" id="Edit" class="easyui-linkbutton">Edit User</a>
         <a href="#" class="easyui-linkbutton" onclick="destroyUser()">Remove User</a>
       </div>
       <table id="dg" title="My Users" class="easyui-datagrid" style="width:550px;height:250px">
         <thead>
           <tr>
+            <th id="checkbox"></th>
             <th field="firstname" width="50">First Name</th>
             <th field="lastname" width="50">Last Name</th>
             <th field="phone" width="50">Phone</th>
             <th field="email" width="50">Email</th>
           </tr>
         </thead>
+        <tbody id="main"></tbody>
       </table>
 
       <div id="dlg" class="easyui-dialog" style="width:400px;height:280px;padding:10px 20px">
         <div class="ftitle">User Information</div>
-        <form id="fm">
+        <div id="fm">
           <div class="fitem">
             <label>First Name:</label>
-            <input name="firstname" class="easyui-textbox firstname" required="true">
+            <input name="firstname" class="easyui-textbox firstname" id="firstname" required="true">
           </div>
           <div class="fitem">
             <label>Last Name:</label>
-            <input name="lastname" class="easyui-textbox lastname" required="true">
+            <input name="lastname" class="easyui-textbox lastname" id="lastname" required="true">
           </div>
           <div class="fitem">
             <label>Phone:</label>
-            <input name="phone" class="easyui-textbox phone">
+            <input name="phone" class="easyui-textbox phone" id="phone">
           </div>
           <div class="fitem">
             <label>Email:</label></br>
-            <input name="email" class="easyui-textbox email" validType="email">
+            <input name="email" class="easyui-textbox email" validType="email" id="email">
           </div>
           <button class="save" style="margin-top: 10px;">Save</button>
-        </form>
+        </div>
       </div>
 
 
       <div id="dlg" class="edit-dialog" style="width:400px;height:280px;padding:10px 20px">
         <div class="ftitle">User Information</div>
-        <form id="fm">
+        <div id="fm">
           <div class="fitem">
             <label>First Name:</label>
-            <input name="firstname" class="easyui-textbox firstname" required="true">
+            <input name="firstname" class="easyui-textbox firstname" required="true" id="editfirstname">
           </div>
           <div class="fitem">
             <label>Last Name:</label>
-            <input name="lastname" class="easyui-textbox lastname" required="true">
+            <input name="lastname" class="easyui-textbox lastname" required="true" id="editlastname">
           </div>
           <div class="fitem">
             <label>Phone:</label>
-            <input name="phone" class="easyui-textbox phone">
+            <input name="phone" class="easyui-textbox phone" id="editphone">
           </div>
           <div class="fitem">
             <label>Email:</label></br>
-            <input name="email" class="easyui-textbox email" validType="email">
+            <input name="email" class="easyui-textbox email" validType="email" id="editemail">
           </div>
-          <button class="save" style="margin-top: 10px;">Save</button>
-        </form>
+          <button class="saveedit" style="margin-top: 10px;">Save</button>
+        </div>
       </div>
 
       <div class="removeUser" style="width: 350px; border: 1px solid black;">
