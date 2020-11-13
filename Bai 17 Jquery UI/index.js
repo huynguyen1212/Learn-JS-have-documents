@@ -63,6 +63,7 @@ $(".save").click(function () {
   };
   Arr.push(Obj);
   addTable(Arr);
+  Table(Arr);
   $(".easyui-dialog").dialog("close");
   a.val("");
   b.val("");
@@ -94,10 +95,67 @@ $("#Edit").click(function () {
 });
 
 $(".saveedit").click(function () {
-  
+  let loca = tim();
+  if (loca != -1) {
+    let a = $("#editfirstname");
+    let b = $("#editlastname");
+    let c = $("#editphone");
+    let d = $("#editemail");
+    let Objedit = {
+      firstName: a.val(),
+      lastName: b.val(),
+      Phone: c.val(),
+      Email: d.val(),
+    };
+    Arr.splice(loca, loca, Objedit);
+  }
+  addTable(Arr);
+  Table(Arr);
+  $(".edit-dialog").dialog("close");
 });
 
 $(".removeUser").hide();
 function destroyUser() {
-  $(".removeUser").dialog();
+  let loca = tim();
+  if (loca != -1) {
+    $(".removeUser").dialog();
+    $("#ok").click(function () {
+      Arr.splice(loca, 1);
+      addTable(Arr);
+      $(".removeUser").dialog("close");
+    });
+    $("#close").click(function () {
+      $(".removeUser").dialog("close");
+    });
+  }
 }
+
+function Table(Arr) {
+  let addInner = "";
+  Arr.forEach((value, index) => {
+    addInner +=
+      "<tr>" +
+      "<td>" +
+      value.firstName +
+      "</td>" +
+      "<td>" +
+      value.lastName +
+      "</td>" +
+      "<td>" +
+      value.Phone +
+      "</td>" +
+      "<td>" +
+      value.Email +
+      "</td>" +
+      "</tr>";
+  });
+  $("#myTable").empty();
+  $("#myTable").append(addInner);
+}
+
+$("#myInput").on("keyup", function () {
+  var value = $(this).val();
+  $("#myTable tr").filter(function () {
+    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+  });
+});
