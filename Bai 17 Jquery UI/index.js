@@ -17,12 +17,12 @@ function newUser() {
 }
 
 var Arr = [
-  {
+  /*{
     firstName: "huy",
     lastName: "nguyen",
     Phone: 111234,
     Email: "huynguyen@sasca.com",
-  },
+  },*/
 ];
 function addTable(Arr) {
   let addInner = "";
@@ -107,7 +107,7 @@ $(".saveedit").click(function () {
       Phone: c.val(),
       Email: d.val(),
     };
-    Arr.splice(loca, loca, Objedit);
+    Arr.splice(loca, 1, Objedit);
   }
   addTable(Arr);
   Table(Arr);
@@ -122,6 +122,7 @@ function destroyUser() {
     $("#ok").click(function () {
       Arr.splice(loca, 1);
       addTable(Arr);
+      Table(Arr);
       $(".removeUser").dialog("close");
     });
     $("#close").click(function () {
