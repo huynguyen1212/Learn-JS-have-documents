@@ -1,37 +1,26 @@
-var text = document.getElementById("myDiv").innerHTML = "<form> " +
+var text = (document.getElementById("myDiv").innerHTML =
+  "<form> " +
   " <input type='text' class = 'inputValue'/>" +
-  "<input type='button' value = 'Submit' onClick= 'getValue()'/>" +
-  "<p id = 'arr1Value'>" + "</p>" + "</br>" +
-
-  "<input type='button' value = 'Do dai' onClick= 'dai()'/>" + "</br>" +
-  "<p id = 'arr1ValueDai'>" + "</p>" + "</br>" +
-
-  "<input type='button' value = 'Xoa' onClick= 'xoa()'/>" + "</br>" +
-  "<p id = 'arr1ValueXoa'>" + "</p>" + "</br>" +
-
-  "<input type='button' value = 'Them' onClick= 'them()'/>" + "</br>" +
-  "<p id = 'arr1ValueThem'>" + "</p>" + "</br>" +
-
-  "<input type='button' value = 'Thay the' onClick= 'thayThe()'/>" + "</br>" +
-  "<p id = 'arr1ValueThayThe'>" + "</p>" + "</br>" +
-
-
-  
-  "<input type='button' value = 'In hoa' onClick= 'Hoa()'/>" + "</br>" +
-  "<p id = 'inhoa'>" + "</p>" + "</br>" +
-  
-  "<input type='button' value = 'In thuong' onClick= 'Thuong()'/>" + "</br>" +
-  "<p id = 'inthuong'>" + "</p>" + "</br>" +
-  "</form>";
+  "<input type='button' value = 'Nhap chuoi' onClick= 'getValue()'/>" +
+  "<p id = 'arr1Value'>" +
+  "</p>" +
+  "</br>" +
+  "<input type='button' value = 'Do dai' onClick= 'dai()'/>" +
+  "<input type='button' value = 'Xoa' onClick= 'xoa()'/>" +
+  "<input type='button' value = 'Them' onClick= 'them()'/>" +
+  "<input type='button' value = 'Thay the' onClick= 'thayThe()'/>" +
+  "<input type='button' value = 'In hoa' onClick= 'Hoa()'/>" +
+  "<input type='button' value = 'In thuong' onClick= 'Thuong()'/>" +
+  "</form>");
 
 var a = document.getElementsByClassName("inputValue");
+var b = a[0].value;
 
 function getValue() {
-  var b = a[0].value;
   var chuoi = prompt("Nhap yeu cau", "Hien thi chuoi");
+  var b = a[0].value;
   if (chuoi != null) {
-    document.getElementById("arr1Value").innerHTML =
-      "Chuoi :" + b;
+    document.getElementById("arr1Value").innerHTML = "Chuoi :" + b;
   }
 }
 
@@ -39,59 +28,41 @@ function dai() {
   var b = a[0].value;
   let Dodai = b.length;
   var dodai = Number(Dodai);
-  var chuoi = prompt("Nhap yeu cau");
-  if (chuoi != null) {
-    document.getElementById("arr1ValueDai").innerHTML =
-      "Do dai:" + dodai;
-  }
+  document.getElementById("arr1Value").innerHTML +=
+    "</br>" + "Do dai: " + dodai;
 }
 
 function xoa() {
   var b = a[0].value;
-  var b = b.slice(2, 4)
-  var chuoi = prompt("Nhap yeu cau");
-  if (chuoi != null) {
-    document.getElementById("arr1ValueXoa").innerHTML =
-      "Chuoi dc xoa: " + b;
-  }
+  b = "";
+  document.getElementById("arr1Value").innerHTML = b;
 }
 
 function them() {
   var b = a[0].value;
-  b = b.concat("hello")
-  var chuoi = prompt("Nhap yeu cau");
+  var chuoi = prompt("chuoi cu: " + b);
+  b = b.concat(chuoi);
   if (chuoi != null) {
-    document.getElementById("arr1ValueThem").innerHTML =
-      "Chuoi them:" + b;
+    document.getElementById("arr1Value").innerHTML = "Chuoi them:" + b;
   }
 }
 
 function thayThe() {
   var b = a[0].value;
-  b = b.replace("i am thank you", "okay")
-  var chuoi = prompt("Nhap yeu cau");
+  var chuoi = prompt("chuoi cu: " + b);
   if (chuoi != null) {
-    document.getElementById("arr1ValueThayThe").innerHTML =
-      "Chuoi thay the:" + b;
+    document.getElementById("arr1Value").innerHTML = "Chuoi thay the:" + chuoi;
   }
 }
 
 function Hoa() {
   var b = a[0].value;
   b = b.toUpperCase();
-  var chuoi = prompt("Nhap yeu cau");
-  if (chuoi != null) {
-    document.getElementById("inhoa").innerHTML =
-      "Chuoi in hoa:" + b;
-  }
+  document.getElementById("arr1Value").innerHTML = "Chuoi in hoa:" + b;
 }
 
 function Thuong() {
   var b = a[0].value;
   b = b.toLowerCase();
-  var chuoi = prompt("Nhap yeu cau");
-  if (chuoi != null) {
-    document.getElementById("inthuong").innerHTML =
-      "Chuoi in thuong:" + b;
-  }
+  document.getElementById("arr1Value").innerHTML = "Chuoi in thuong:" + b;
 }
