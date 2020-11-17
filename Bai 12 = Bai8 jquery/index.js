@@ -40,10 +40,21 @@ function flyToElement(flyer, flyingTo) {
     }
   );
 }
-$(function () {
-  $(".btn-add-cart").click(function () {
-    var $_this = $(this);
-    var itemImg = $(this).closest(".thumbnail").find("img").eq(0);
-    flyToElement($(itemImg), $(".cart_anchor"));
-  });
+// $(function () {
+//   $(".btn-add-cart").click(function () {
+//     var $_this = $(this);
+//     var itemImg = $(this).closest(".thumbnail").find("img").eq(0);
+//     flyToElement($(itemImg), $(".cart_anchor"));
+//   });
+// });
+
+var arr = [];
+$(".right").click(function () {
+  let a = $(this).parents(".product");
+  arr.push(a[0]);
+  console.log(arr);
+  $(".main").empty();
+  // for (let i = 0; i < arr.length; i++) {
+  //   $(".main").append(arr);
+  // }
 });

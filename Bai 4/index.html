@@ -63,6 +63,14 @@
       color: #fff;
       background: rgb(5, 172, 172);
     }
+
+    #flex {
+      display: flex;
+    }
+
+    #flex input:first-child {
+      border-right: 3px gainsboro solid;
+    }
   </style>
 </head>
 
@@ -110,7 +118,10 @@
         <td><input type="button" class="operator" name="doit" value="=" onclick="Result()"></td>
         <td><input type="button" class="operator" name="div" value="/"
             onclick="calculator.display.value += '/', runAfter('/')"></td>
-        <td><input type="button" class="operator" id="clear" name="clear" value="AC" onclick="clearItem()"></td>
+        <td id="flex"><input type="button" class="operator" name="div" value="("
+            onclick="calculator.display.value += '('" />
+          <input type="button" class="operator" name="div" value=")" onclick="calculator.display.value += ')'" />
+        </td>
       </tr>
     </table>
   </form>

@@ -41,31 +41,50 @@ function them() {
     document.getElementById("arr1Value").innerHTML =
       "Them phan tu:" + arr1 + "," + mang2;
   }
+  arr1 = arr1 + "," + mang2;
 }
 
 function sua() {
-  var mang = prompt("Mang cu: " + arr1);
+  var mang = prompt("Mang cu: ", arr1);
   let mang1 = mang.split(" ");
   let mang2 = mang1.toString();
   if (mang != null) {
     document.getElementById("arr1Value").innerHTML = "sua mang:" + mang2;
   }
+  arr1 = mang2;
 }
 
 function xoa() {
-  arr1 = "";
-  document.getElementById("arr1Value").innerHTML = arr1;
+  arr1 = arr1.split(",");
+  var vitri = prompt("Lay mang trong khoang: ");
+  arr1 = arr1.splice(vitri[0], vitri[vitri.length - 1]);
+  document.getElementById("arr1Value").innerHTML = "mang da xoa: " + arr1;
+  arr1 = arr1.toString();
 }
 
 function sort1() {
-  let newArr = arr1.split(",");
-  newArr.sort();
-  document.getElementById("arr1Value").innerHTML = "SXT phan tu:" + newArr;
+  if (typeof arr1 == "string") {
+    let newArr1 = arr1.split(",");
+    newArr1.sort();
+    document.getElementById("arr1Value").innerHTML = "SXT phan tu:" + newArr1;
+    arr1 = newArr1;
+  } else {
+    arr1.sort();
+    document.getElementById("arr1Value").innerHTML = "SXG phan tu:" + arr1;
+    arr1 = arr1;
+  }
 }
 
 function sort2() {
-  let newArr = arr1.split(",");
-  newArr.sort();
-  newArr.reverse();
-  document.getElementById("arr1Value").innerHTML = "SXG phan tu:" + newArr;
+  if (typeof arr1 == "string") {
+    let newArray2 = arr1.split(",");
+    newArray2.sort();
+    newArray2.reverse();
+    document.getElementById("arr1Value").innerHTML = "SXG phan tu:" + newArray2;
+    arr1 = newArray2;
+  } else {
+    arr1.reverse();
+    document.getElementById("arr1Value").innerHTML = "SXG phan tu:" + arr1;
+    arr1 = arr1;
+  }
 }

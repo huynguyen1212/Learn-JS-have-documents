@@ -4,6 +4,8 @@ function tim() {
   for (let index = 0; index < inp.length; index++) {
     if ($(inp[index]).val() == 0) {
       $(inp[index]).addClass("error");
+    } else {
+      $(inp[index]).removeClass("error");
     }
   }
 }

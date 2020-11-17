@@ -34,35 +34,36 @@ function dai() {
 
 function xoa() {
   var b = a[0].value;
-  b = "";
-  document.getElementById("arr1Value").innerHTML = b;
+  var mx = prompt("Khoang lay: ");
+  b = b.substring(0, mx[0]) + b.substring(mx.length + 1, b.length);
+  document.getElementById("arr1Value").innerHTML = "chuoi da xoa: " + b;
 }
 
 function them() {
   var b = a[0].value;
-  var chuoi = prompt("chuoi cu: " + b);
-  b = b.concat(chuoi);
-  if (chuoi != null) {
-    document.getElementById("arr1Value").innerHTML = "Chuoi them:" + b;
-  }
+  let chuoi1 = prompt("chuoi cu: " + b);
+  let chuoimoi = b.concat(chuoi1);
+  document.getElementById("arr1Value").innerHTML = "Chuoi them:" + chuoimoi;
+  a[0].value = chuoimoi;
 }
 
 function thayThe() {
   var b = a[0].value;
-  var chuoi = prompt("chuoi cu: " + b);
-  if (chuoi != null) {
-    document.getElementById("arr1Value").innerHTML = "Chuoi thay the:" + chuoi;
-  }
+  let chuoi = prompt("chuoi cu: ", b);
+  document.getElementById("arr1Value").innerHTML = "Chuoi thay the:" + chuoi;
+  a[0].value = chuoi;
 }
 
 function Hoa() {
   var b = a[0].value;
-  b = b.toUpperCase();
-  document.getElementById("arr1Value").innerHTML = "Chuoi in hoa:" + b;
+  let up = b.toUpperCase();
+  document.getElementById("arr1Value").innerHTML = "Chuoi in hoa:" + up;
+  a[0].value = up;
 }
 
 function Thuong() {
   var b = a[0].value;
-  b = b.toLowerCase();
-  document.getElementById("arr1Value").innerHTML = "Chuoi in thuong:" + b;
+  let down = b.toLowerCase();
+  document.getElementById("arr1Value").innerHTML = "Chuoi in thuong:" + down;
+  a[0].value = down;
 }

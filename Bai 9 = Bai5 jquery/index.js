@@ -1,7 +1,9 @@
 function tim() {
   var images = $("#menu img");
+  var arr = [];
   for (let i = 0; i < images.length; i++) {
     var srcImg = $(images[i]).attr("src");
-    $("#newMenu").html(srcImg);
+    arr.push(srcImg);
   }
+  $("#newMenu").html(arr);
 }
