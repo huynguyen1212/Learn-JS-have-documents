@@ -35,7 +35,7 @@ function dai() {
 function xoa() {
   var b = a[0].value;
   var mx = prompt("Khoang lay: ");
-  b = b.substring(0, mx[0]) + b.substring(mx.length + 1, b.length);
+  b = b.substr(0, mx[0]) + b.substr(mx.length + 1, b.length);
   document.getElementById("arr1Value").innerHTML = "chuoi da xoa: " + b;
 }
 

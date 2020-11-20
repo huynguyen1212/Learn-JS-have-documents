@@ -56,8 +56,10 @@ function sua() {
 
 function xoa() {
   arr1 = arr1.split(",");
-  var vitri = prompt("Lay mang trong khoang: ");
-  arr1 = arr1.splice(vitri[0], vitri[vitri.length - 1]);
+  var vitri = prompt("Xoa tu ? den ?: ");
+  arr1 =
+    arr1.splice(0, vitri[0]) +
+    arr1.splice(vitri[vitri.length - 1], arr1.length - 1);
   document.getElementById("arr1Value").innerHTML = "mang da xoa: " + arr1;
   arr1 = arr1.toString();
 }
